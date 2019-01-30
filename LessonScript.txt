@@ -1,0 +1,38 @@
+Public Class Lesson1
+	Private Sub resultButton_Click(sender As Object, e As EventArgs) Handles resultButton.Click
+		Dim text1 As String
+		Dim text2 As String
+		text1 = entry1TextBox.Text
+		text2 = entry2TextBox.Text
+		If text1 = "" And text2 = "" Then
+			MsgBox("Please enter content into the text boxes", MsgBoxStyle.AbortRetryIgnore, "Enter content")
+		ElseIf text1 = "asdf jkl; ;lkj fdsa dkd dad fad jal fal lad fas" And
+		text2 = "fal dal lal ;a; faf dak fak sad fad lad fjk fas" Then
+			MsgBox("Good job!", MsgBoxStyle.ApplicationModal, "Correct!")
+		Else MsgBox("You were close", MsgBoxStyle.AbortRetryIgnore, "Please try again")
+		End If
+	End Sub
+
+	Private Sub exitButton_Click(sender As Object, e As EventArgs) Handles exitButton.Click
+		Me.Close()
+	End Sub
+	Private Sub clearButton_Click_1(sender As Object, e As EventArgs) Handles clearButton.Click
+		entry1TextBox.Text = ""
+		entry2TextBox.Text = ""
+	End Sub
+	Private Sub lessonTimer_Tick(sender As Object, e As EventArgs) Handles lessonTimer.Tick
+		timeResultsLabel.Text = timeResultsLabel.Text + 1
+	End Sub
+
+	Private Sub startButton_Click(sender As Object, e As EventArgs) Handles startButton.Click
+		lessonTimer.Start()
+	End Sub
+
+	Private Sub stopButton_Click(sender As Object, e As EventArgs) Handles stopButton.Click
+		lessonTimer.Stop()
+	End Sub
+
+	Private Sub resetButton_Click(sender As Object, e As EventArgs) Handles resetButton.Click
+		timeResultsLabel.Text = "1"
+	End Sub
+End Class
